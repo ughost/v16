@@ -14,14 +14,14 @@
 	var v16 = {};
 	
 	/**
-	 * Main inner data container.
+	 * Main data container.
 	 * @private
 	 */
 	v16.data = {};
 	
 	/**
 	 * Bind global methods to the parent object.
-	 * Note that: if you change the namespace you must set the same namespace @ v16.engine and use it @ v16.parts
+	 * Note that: if you change the namespace you must set the same namespace in v16.engine.js file and use it in v16.parts.js
 	 * 
 	 * @namespace PARENT.ENGINENAME (default: window.v16)
 	 */
@@ -30,7 +30,6 @@
 		 * Global parameter setter.
 		 * @param {string|object} element	- param name | params object
 		 * @param {mixed} value				- param value (optional)
-		 * @return v16;
 		 */
 		/*public*/ set : function (/*mixed*/ element, /*mixed*/ value) {
 			switch (typeof element) {
@@ -53,7 +52,6 @@
 		 * Module activator.
 		 * @important - after v16.engine.run this method call implementations directly (rewrited by v16.engine)
 		 * @param {string} name	- module name
-		 * @return v16;
 		 */
 		/*public*/ use : function (/*String*/ element) {
 			switch (typeof element) {
@@ -85,6 +83,6 @@
 		 */
 		parts : [],
 		
-		VERSION	: "1.0"
+		VERSION	: "1.1"
 	};
 })(/*object*/ window /*string*/ /*, "engineName"*/);
