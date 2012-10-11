@@ -109,6 +109,7 @@ Important:
 This can be usefull when you whant to call some part after redirect whitout any dirty tricks.
 
 Gears got simple structure where name of `gear` is that what you must set in activator to "roll the `gear`" - in this case activator is `location.hash`, look at the definition of `gear`:
+	
 	v16.newGear('thankYou', function () {
 		window.alert('Thank you for smth! :)');
 	});
@@ -116,6 +117,7 @@ Gears got simple structure where name of `gear` is that what you must set in act
 ..this `gear` appears once after it declaration and will be dismount after the "roll". So if you redirect user to f.e.: `http://example.com/#thankYou` it'll "roll" and dismount after it.
 
 You can automatically remount the gear after it's roll by adding 3rd parameter to it declaration:
+	
 	v16.newGear('signIn', function () {
 		/* show signIn popup.. or smth */
 	});
