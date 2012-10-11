@@ -57,7 +57,7 @@ there is nothing special to comment here, you can easy use to get&set parameters
 	
 	/* */window.console && console.log(v16.get('param1'));
 
-set&get have one more usefull varioation of use:
+set&get have one more usefull variation of use:
 
 	//set few parameters in one call
 	v16.set({
@@ -67,3 +67,60 @@ set&get have one more usefull varioation of use:
 	
 	//get whole parametrs tree (for debug purposes)
 	v16.get();
+	
+### 3. parts declatarion
+Most important elements of each engine are parts - so we need to declare implementation of each one by using `v16.newPart()` in `v16.parts` file, like that:
+
+	v16.newPart('mainSlider', function () {
+		/* slider implementation */
+	});
+	
+after that we just need to `use` this part (next chapter) if it needed.
+
+Parts can also use itself automatically after engine initialization. To do that set the third parameter of it declaration to `true`, f.e.:
+
+	v16.newPart('mainMenu', function () {
+		/* implementation of element available on each page */
+	}, true);
+	
+### 4. using parts
+If you want to use some part declared in `v16.parts.js` you just need to call it from the source of your document like that:
+
+	<div id="mainSlider">
+		<ul class="slides"><!-- ... --></ul>
+		<ol class="pagination"></ol>
+		
+		<script> v16.use('mainSlider'); </script>
+	</div>
+	
+..or like that:
+
+	v16.use(['mainSlider', 'footerSlider']);
+
+This feature builds sack of parts and use each of it in order of use `.use()`
+
+Important:
+ - 1 call = 1 call, so if you use this part couple times engine call it couple times (it usefull too).
+ - parts called by `.use()` after the engine starts (f.e. to bind some AJAX response) will be started immediately.
+ - stack can be increased while the engine starts so one part can use another one.
+ - if engine found some part which declaration type !== 'function' it will call each of method of this object (?todo: new $part).
+ 
+### 5. gears declaration
+This can be usefull when you whant to call some part after redirect whitout any dirty tricks.
+
+Gears got simple structure where name of `gear` is that what you must set in activator to "roll the `gear`" - in this case activator is `location.hash`, look at the definition of `gear`:
+	v16.newGear('thankYou', function () {
+		window.alert('Thank you for smth! :)');
+	});
+
+..this `gear` appears once after it declaration and will be dismount after the "roll". So if you redirect user to f.e.: `http://example.com/#thankYou` it'll "roll" and dismount after it.
+
+You can automatically remount the gear after it's roll by adding 3rd parameter to it declaration:
+	v16.newGear('signIn', function () {
+		/* show signIn popup.. or smth */
+	});
+
+..so each time when you set `location.hash` to "#signIn" you roll that gear.
+
+## TADA!
+Simple - huh? :)
