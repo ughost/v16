@@ -1,7 +1,7 @@
 v16 
 ===
 
-v16 is a small JavaScript tool for building fast, robust and reliable web applications.. or just cleaning some mess around your project.
+v16 is a small automotive themed JavaScript tool for building fast, robust and reliable web applications.. or just cleaning some mess around your project.
 
 ## Quick start
 Choose one of the following options:
