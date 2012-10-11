@@ -11,6 +11,7 @@ Choose one of the following options:
 Installation example
 ____________________
 I know.. there is 3 requests for small files, but if you look a little bit closer to it you can find that this is really fine solution.
+..and lightweight one (`v16.starter.min` + `v16.engine.min` = ~2KB)
 
 	<!DOCTYPE HTML>
 	<html lang="en-US">
@@ -100,15 +101,15 @@ If you want to use some part declared in `v16.parts.js` you just need to call it
 This feature builds sack of parts and use each of it in order of use `.use()`
 
 Important:
- - 1 call = 1 call, so if you use this part couple times engine call it couple times (it usefull too).
+ - 1 call = 1 call, so if you use some part couple times engine call it couple times (it usefull too).
  - parts called by `.use()` after the engine starts (f.e. to bind some AJAX response) will be started immediately.
  - stack can be increased while the engine starts so one part can use another one.
- - if engine found some part which declaration type !== 'function' it will call each of method of this object (?todo: new $part).
+ - if engine found some part which declaration type !== 'function' it will call each of method of this object (?todo: new part()).
  
-### 5. gears declaration
-This can be usefull when you whant to call some part after redirect whitout any dirty tricks.
+### 5. gears
+This can be usefull when you want to call some part after redirect without any dirty tricks.
 
-Gears got simple structure where name of `gear` is that what you must set in activator to "roll the `gear`" - in this case activator is `location.hash`, look at the definition of `gear`:
+Gears got simple structure where name of a gear is that what you must set in activator to "roll the gear" - in this case activator is `location.hash`, look at the definition of extremly usefull gear:
 	
 	v16.newGear('thankYou', function () {
 		window.alert('Thank you for smth! :)');
