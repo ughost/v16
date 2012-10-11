@@ -34,8 +34,19 @@ I know.. there is 3 requests for small files, but if you look a little bit close
 
 ## Features
 ### 1. bind possibility into your existing structure of project
- 	
- 	that alows you to cal it on this way (by default): v16.use(['partA', 'partB']);
- 	..or this way: myProject.dispatcher.use(['partA', 'partB']);
- 	
+that allows you to call it on this way (by default): `v16.use(['partA', 'partB']);`
+..or this way: `myProject.dispatcher.use(['partA', 'partB']);`
+
+To set it edit last line of: `v16.starter` and `v16.engine` and change it from:
+
+	/* ... */
+	})(/*object*/ window /*string*/ /*, "engineName"*/);
+	
+which defines default namespace: `window.v16`, to something like that:
+
+	/* ... */
+	})(myProject, 'dispatcher');
+	
+only one reqires thing is that `myProject` should exist before `v16.starter` without mooving it anywhere from head.
+
 ### 2. set & get global parameters
