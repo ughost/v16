@@ -4,7 +4,7 @@
  * v16.engine - manage active parts
  * 
  * @author uGhost
- * @version 1.1
+ * @version 1.2
  * 
  * @param {Object} machinery	- engine container
  * @param {Object} engineName	- user reference name
@@ -31,6 +31,8 @@
 	engine.run = function () {
 		//rewrite standard collector
 		v16.use = engine.installPart;
+		
+		console.log(v16.gearsImpl);
 		
 		return !!v16.parts.length && engine.installPart(v16.parts); //wrooom
 	};
