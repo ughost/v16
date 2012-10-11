@@ -33,7 +33,7 @@ I know.. there is 3 requests for small files, but if you look a little bit close
 ..at the production environment you can merge v16.parts and v16.engine files, but while development better leave it in separated form.
 
 ## Features
-### 1. bind possibility into your existing structure of project
+### 1. easy bind possibility into your existing structure of project
 that allows you to call it on this way (by default): `v16.use(['partA', 'partB']);`
 ..or this way: `myProject.dispatcher.use(['partA', 'partB']);`
 
@@ -42,11 +42,28 @@ To set it edit last line of: `v16.starter` and `v16.engine` and change it from:
 	/* ... */
 	})(/*object*/ window /*string*/ /*, "engineName"*/);
 	
-which defines default namespace: `window.v16`, to something like that:
+(which defines default namespace: `window.v16`), to something like that:
 
 	/* ... */
 	})(myProject, 'dispatcher');
 	
-only one reqires thing is that `myProject` should exist before `v16.starter` without mooving it anywhere from head.
+only one reqired thing is that `myProject` should exist before `v16.starter` without mooving it anywhere from head.
 
-### 2. set & get global parameters
+### 2. global parameters getter&setter
+there is nothing special to comment here, you can easy use to get&set parameters froum you aplication source anytime
+
+	v16.set('param1', 'value of 1');
+	v16.set('param2', 'value of 2');
+	
+	/* */window.console && console.log(v16.get('param1'));
+
+set&get have one more usefull varioation of use:
+
+	//set few parameters in one call
+	v16.set({
+		param1 : 'value of 1',
+		param2 : 'value of 2'
+	});
+	
+	//get whole parametrs tree (for debug purposes)
+	v16.get();
