@@ -33,8 +33,9 @@ I know.. there is 3 requests for small files, but if you look a little bit close
 ..at the production environment you can merge v16.parts and v16.engine files, but while development better leave it in separated form.
 
 ## Features
- 1. bind possibility into your existing structure of project
+### 1. bind possibility into your existing structure of project
+ 	
  	that alows you to cal it on this way (by default): v16.use(['partA', 'partB']);
  	..or this way: myProject.dispatcher.use(['partA', 'partB']);
  	
- 2. set & get global parameters
+### 2. set & get global parameters
