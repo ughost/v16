@@ -8,8 +8,8 @@ Choose one of the following options:
 1. download .zip file and unpack it into your project.
 2. clone the git repo — `git clone https://github.com/ughost/v16.git` into your project /js directory.
 
-Installation example
-____________________
+## Installation example
+
 I know.. there is 3 requests for small files, but if you look a little bit closer to it you can find that this is really fine solution.
 ..and lightweight one (`v16.starter.min` + `v16.engine.min` = ~2KB)
 
